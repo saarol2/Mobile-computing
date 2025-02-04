@@ -12,16 +12,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val navController = rememberNavController()
             ComposeTutorialTheme {
-                NavHost(navController = navController, startDestination = Routes.conversation) {
-                    composable(Routes.conversation) {
-                        Conversation(navController, SampleData.conversationSample)
-                    }
-                    composable(Routes.settings) {
-                        SettingsScreen(navController)
-                    }
-                }
+                MainNavigation(context = applicationContext)
             }
         }
     }
