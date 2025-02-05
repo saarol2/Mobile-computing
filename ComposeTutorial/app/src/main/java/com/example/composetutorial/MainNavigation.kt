@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.composetutorial.ui.Conversation
+import com.example.composetutorial.ui.SettingsScreen
 
 @Composable
 fun MainNavigation(
