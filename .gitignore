@@ -1,0 +1,32 @@
+# Gradle
+.gradle/
+build/
+*/build/
+.gradlew
+.gradlew.bat
+
+# Android Studio
+.idea/
+*.iml
+
+# Keystore-tiedostot
+*.jks
+*.keystore
+
+# Local configuration file (local.properties)
+local.properties
+
+# Kotlin-specific
+*.class
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# JetBrains Rider
+.idea/
+
+# Android/IntelliJ
+*.iws
