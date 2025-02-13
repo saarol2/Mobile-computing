@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.example.composetutorial"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.composetutorial"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -108,4 +108,6 @@ dependencies {
     implementation("androidx.room:room-paging:$room_version")
 
     implementation("io.coil-kt.coil3:coil-compose:3.0.4")
+
+    implementation("androidx.core:core-ktx:1.15.0")
 }

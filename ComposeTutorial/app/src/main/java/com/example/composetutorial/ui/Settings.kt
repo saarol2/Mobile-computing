@@ -1,6 +1,8 @@
 package com.example.composetutorial.ui
 
 import android.content.Context
+import android.os.Build
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -73,8 +75,14 @@ fun UserProfileScreen(context: Context) {
             val inputStream = context.contentResolver.openInputStream(uri)
             val outputFile = File(context.filesDir, "profile_image.jpg")
             inputStream?.copyTo(outputFile.outputStream())
-
             profileImageUri = outputFile.absolutePath
+        }
+    }
+    val requestNotificationPermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        if (granted) {
+            Toast.makeText(context, "Notification permission granted", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "Notification permission denied", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -116,7 +124,6 @@ fun UserProfileScreen(context: Context) {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-
         TextField(
             value = username,
             onValueChange = { username = it },
@@ -137,6 +144,22 @@ fun UserProfileScreen(context: Context) {
             modifier = Modifier.padding(16.dp)
         ) {
             Text("Save Changes")
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Enable Notifications Button
+        Button(
+            onClick = {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    requestNotificationPermission.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+                } else {
+                    Toast.makeText(context, "Notification permission not needed for this version", Toast.LENGTH_SHORT).show()
+                }
+            },
+            modifier = Modifier.padding(16.dp)
+        ) {
+            Text("Enable notifications")
         }
     }
 }
