@@ -53,11 +53,11 @@ import java.io.File
 @Composable
 fun SettingsScreen(navController: NavController, context: Context) {
     Header(navController)
-    UserProfileScreen(context)
+    UserProfileScreen(navController, context)
 }
 
 @Composable
-fun UserProfileScreen(context: Context) {
+fun UserProfileScreen(navController: NavController, context: Context) {
     val userDao = Graph.database.userDao()
     var username by remember { mutableStateOf("") }
     var profileImageUri by remember { mutableStateOf<String?>(null) }
@@ -161,6 +161,21 @@ fun UserProfileScreen(context: Context) {
         ) {
             Text("Enable notifications")
         }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Button(
+            onClick = {
+                navController.navigate(Routes.video) {
+                    popUpTo(Routes.video) {
+                        inclusive = true
+                    }
+                }
+            },
+            modifier = Modifier.padding(16.dp)
+        ) {
+            Text("Video player")
+        }
     }
 }
 
@@ -183,7 +198,7 @@ fun Header(navController: NavController) {
         ) {
             Icon(
                 imageVector = Icons.Filled.ArrowBack,
-                contentDescription = "Settings Icon"
+                contentDescription = "Back"
             )
         }
     }

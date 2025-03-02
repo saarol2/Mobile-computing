@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.composetutorial.ui.Conversation
 import com.example.composetutorial.ui.SettingsScreen
+import com.example.composetutorial.ui.VideoPlayerScreen
 
 @Composable
 fun MainNavigation(
@@ -22,6 +23,10 @@ fun MainNavigation(
 
         composable(route = Routes.settings) {
             SettingsScreen(navController = appState.navController, context = context)
+        }
+
+        composable(route = Routes.video) {
+            VideoPlayerScreen(navController = appState.navController)
         }
     }
 }
