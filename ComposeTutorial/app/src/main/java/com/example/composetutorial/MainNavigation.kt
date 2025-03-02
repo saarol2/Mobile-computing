@@ -1,11 +1,12 @@
 package com.example.composetutorial
 
+import SampleData
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.composetutorial.ui.Conversation
 import com.example.composetutorial.ui.SettingsScreen
+import com.example.composetutorial.ui.ToDoScreen
 
 @Composable
 fun MainNavigation(
@@ -14,10 +15,10 @@ fun MainNavigation(
 ) {
     NavHost(
         navController = appState.navController,
-        startDestination = Routes.conversation
+        startDestination = Routes.todo
     ) {
-        composable(route = Routes.conversation) {
-            Conversation(navController = appState.navController, SampleData.conversationSample)
+        composable(route = Routes.todo) {
+            ToDoScreen(navController = appState.navController, SampleData.conversationSample)
         }
 
         composable(route = Routes.settings) {

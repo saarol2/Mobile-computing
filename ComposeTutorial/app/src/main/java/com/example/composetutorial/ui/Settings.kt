@@ -175,8 +175,8 @@ fun Header(navController: NavController) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         IconButton(
-            onClick = { navController.navigate(Routes.conversation) {
-                popUpTo(Routes.conversation) {
+            onClick = { navController.navigate(Routes.todo) {
+                popUpTo(Routes.todo) {
                     inclusive = true
                 }
             } }

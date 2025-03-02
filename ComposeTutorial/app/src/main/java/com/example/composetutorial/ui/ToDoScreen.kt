@@ -48,7 +48,7 @@ import com.example.composetutorial.Routes
 data class Message(val author: String, val body: String)
 
 @Composable
-fun Conversation(navController: NavController, messages: List<Message>) {
+fun ToDoScreen(navController: NavController, messages: List<Message>) {
     Column(modifier = Modifier.fillMaxSize()) {
         // Header
         Row(
@@ -175,6 +175,6 @@ fun PreviewMessageCard() {
 @Composable
 fun PreviewConversation(navController: NavController = rememberNavController()) {
     ComposeTutorialTheme {
-        Conversation(navController, SampleData.conversationSample)
+        ToDoScreen(navController, SampleData.conversationSample)
     }
 }

@@ -1,6 +1,6 @@
 package com.example.composetutorial
 
 object Routes {
-    var conversation = "conversation_screen"
+    var todo = "todo_screen"
     var settings = "settings_screen"
 }

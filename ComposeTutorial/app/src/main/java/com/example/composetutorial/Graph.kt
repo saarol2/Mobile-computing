@@ -2,6 +2,7 @@ package com.example.composetutorial
 
 import android.content.Context
 import androidx.room.Room
+import com.example.composetutorial.data.repository.TaskRepository
 import com.example.composetutorial.data.repository.UserRepository
 import com.example.composetutorial.data.room.AppDatabase
 
@@ -10,15 +11,18 @@ object Graph {
         private set
 
     lateinit var appContext: Context
+        private set
 
-    val repository by lazy {
-        UserRepository (
-            userDao = database.userDao()
-        )
+    val userRepository by lazy {
+        UserRepository(database.userDao())
+    }
+
+    val taskRepository by lazy {
+        TaskRepository(database.taskDao())
     }
 
     fun provide(context: Context) {
-        appContext =context
+        appContext = context
         database = Room.databaseBuilder(context, AppDatabase::class.java, "data.db")
             .fallbackToDestructiveMigration()
             .allowMainThreadQueries()
