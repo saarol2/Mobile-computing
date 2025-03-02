@@ -19,7 +19,6 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             ComposeTutorialTheme {
-                Log.d("TAG", "moi")
                 MainNavigation(context = applicationContext)
             }
         }
@@ -27,7 +26,6 @@ class MainActivity : ComponentActivity() {
 
     private fun handleLightLevelChange(lightLevel: Float) {
         if (lightLevel < 10) {
-            Log.d("TAG", "handlelightlevelchange")
             notificationHandler.sendNotification(
                 "Low Light Detected",
                 "The ambient light level is low ($lightLevel lux). Tap to open the app."
